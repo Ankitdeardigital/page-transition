@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Page transition</title>
+    <style>* {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+      
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .wrapper {
+        display: grid;
+        grid-template-rows: 80px 1fr;
+      }
+      
+      header {
+        width: 100vw;
+        height: 80px;
+        background: #fff;
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+        padding: 0 20px;
+        z-index: 10;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+                justify-content: space-between;
+      }
+      
+      #brand {
+        display: -webkit-box;
+        display: flex;
+      }
+      #brand #logo {
+        width: 26px;
+        height: 26px;
+        background: #2661f7;
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+      #brand #wordmark {
+        width: 150px;
+        height: 26px;
+        background: #F44336;
+        border-radius: 26px;
+      }
+      
+      nav {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+                align-items: center;
+      }
+      nav a {
+        display: block;
+        width: 80px;
+        height: 20px;
+        margin-left: 20px;
+        border-radius: 20px;
+      }
+      nav a:nth-child(odd) {
+        background: #2661f7;
+      }
+      nav a:nth-child(even) {
+        background: #3f51b5;
+      }
+      nav span {
+        width: 40px;
+        height: 40px;
+        background: #2661f7;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+                justify-content: center;
+        border-radius: 50%;
+        display: none;
+      }
+      nav span .bar {
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        position: relative;
+      }
+      nav span .bar:before, nav span .bar:after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+      }
+      nav span .bar:before {
+        bottom: 5px;
+      }
+      nav span .bar:after {
+        top: 5px;
+      }
+      
+      main {
+        width: 100vw;
+        display: -webkit-box;
+        display: flex;
+      }
+      
+      section {
+        width: 25vw;
+        height: 100vh;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+                justify-content: center;
+      }
+      section:nth-child(odd) {
+        background: #e91e63;
+      }
+      section:nth-child(even) {
+        background: #3F51B5;
+      }
+      section .content {
+        -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+      }
+      section .content .heading {
+        width: 240px;
+        height: 20px;
+        background: #fff;
+        border-radius: 20px;
+        margin-bottom: 20px;
+      }
+      section .content .sub-heading {
+        width: 120px;
+        height: 20px;
+        background: #fff;
+        border-radius: 20px;
+      }
+      
+      @media screen and (min-width: 981px) {
+        section {
+          -webkit-transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+          transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+        }
+        section:nth-child(1):hover {
+          width: 50vw;
+        }
+        section:nth-child(1):hover .content {
+          -webkit-transform: rotate(0deg);
+                  transform: rotate(0deg);
+        }
+        section:nth-child(2):hover {
+          width: 50vw;
+        }
+        section:nth-child(2):hover .content {
+          -webkit-transform: rotate(0deg);
+                  transform: rotate(0deg);
+        }
+        section:nth-child(3):hover {
+          width: 50vw;
+        }
+        section:nth-child(3):hover .content {
+          -webkit-transform: rotate(0deg);
+                  transform: rotate(0deg);
+        }
+        section:nth-child(4):hover {
+          width: 50vw;
+        }
+        section:nth-child(4):hover .content {
+          -webkit-transform: rotate(0deg);
+                  transform: rotate(0deg);
+        }
+        section .content {
+          -webkit-transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+          transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+        }
+      }
+      @media screen and (max-width: 980px) {
+        header {
+          position: fixed;
+        }
+      
+        main {
+          display: unset;
+          margin-top: 80px;
+        }
+        main section {
+          float: left;
+          width: 50vw;
+          height: calc(50vh - 40px);
+          border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        }
+        main section .content {
+          -webkit-transform: rotate(0deg);
+                  transform: rotate(0deg);
+        }
+      }
+      @media screen and (max-width: 767px) {
+        nav a {
+          display: none;
+        }
+        nav span {
+          display: -webkit-box;
+          display: flex;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        main section {
+          width: 100vw;
+          border: none;
+        }
+      }
+      #youtube {
+        position: fixed;
+        right: 2vw;
+        bottom: 2vh;
+        font-size: 30px;
+        color: #fff;
+      }
+      </style>
+</head>
+<body>
+        
+<div class="wrapper">
+    <header>
+      <div id="brand">
+        <div id="logo"></div>
+        <div id="wordmark"></div>
+      </div>
+      <nav><a href="#"></a><a href="#"></a><a href="#"></a><a href="#"></a><span>
+          <div class="bar"></div></span></nav>
+    </header>
+    <main>
+      <section>
+        <div class="content">
+          <div class="heading"></div>
+          <div class="sub-heading"></div>
+        </div>
+      </section>
+      <section>
+        <div class="content">
+          <div class="heading"></div>
+          <div class="sub-heading"></div>
+        </div>
+      </section>
+      <section>
+        <div class="content">
+          <div class="heading"></div>
+          <div class="sub-heading"></div>
+        </div>
+      </section>
+      <section>
+        <div class="content">
+          <div class="heading"></div>
+          <div class="sub-heading"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
